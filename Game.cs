@@ -4,11 +4,13 @@ using GameBoard;
 namespace Logic{
     public class Game{
         int emptyCells = 9;
-        static string player1="Human";
-        static string player2 = "Computer";
-        string currentPlayer = player1;
+        //user's represented as player1
+        static string player1;
+        static string player2;
+        private string currentPlayer = player1;
 
-       public Game(){
+       public Game(string userSymbol){
+            player1 = userSymbol;
             var board = new Board();
             board.printBoard();            
         }
@@ -22,6 +24,18 @@ namespace Logic{
 
             }
         }
+
+        public void assignSymbol(string userSymbol){
+            if(userSymbol=="X"){
+                player2="O";
+                player1="X";
+            }else{
+                player2="X";
+                player1="O";
+            }
+
+        }
+        
     }
 }
 
