@@ -1,11 +1,26 @@
 using System;
+using GameBoard;
+
 namespace Logic{
     public class Game{
-        string player1="Joe";
-        string player = "Mary";
+        int emptyCells = 9;
+        static string player1="Human";
+        static string player2 = "Computer";
+        string currentPlayer = player1;
 
-        public void players(){
-            Console.Write($"Players are {player1} and {player}");
+       public Game(){
+            var board = new Board();
+            board.printBoard();            
+        }
+
+        public string switchPlayerTurn(){
+            return currentPlayer==player1?currentPlayer=player2:currentPlayer=player1;
+        }
+
+        public void gameManager(){
+            while(emptyCells>0){
+
+            }
         }
     }
 }
