@@ -8,10 +8,11 @@ namespace Logic{
         static string player1;
         static string player2;
         private string currentPlayer = player1;
+        static Board board;
 
        public Game(string userSymbol){
             player1 = userSymbol;
-            var board = new Board();
+            board = new Board();
             board.printBoard();            
         }
 
@@ -21,6 +22,10 @@ namespace Logic{
 
         public void gameManager(){
             while(emptyCells>0){
+                Console.WriteLine($"It is a {currentPlayer} turn, select the position");
+                board.printWithIntexes();
+                int userSelec = Console.ReadLine();
+
 
             }
         }
