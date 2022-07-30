@@ -21,6 +21,21 @@ namespace GameBoard{
                 Console.WriteLine("________________");
             }
         }
+        public void printWithIntexes(){
+            int m =0;
+                        Console.WriteLine("________________");
+            for( int i = 0;i< 3;i++){
+                for ( int j = 0;j<3;j++){
+                    Console.Write("|");
+                    Console.Write( " " +m+" ");   
+                    m++;             
+                }
+                Console.WriteLine("|");
+                Console.WriteLine("________________");
+            }
+        }
+
+        
     
     }
 }

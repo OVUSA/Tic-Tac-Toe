@@ -13,7 +13,8 @@ namespace Logic{
        public Game(string userSymbol){
             player1 = userSymbol;
             board = new Board();
-            board.printBoard();            
+            board.printBoard();   
+            board.printWithIntexes();      
         }
 
         public string switchPlayerTurn(){
@@ -24,7 +25,7 @@ namespace Logic{
             while(emptyCells>0){
                 Console.WriteLine($"It is a {currentPlayer} turn, select the position");
                 board.printWithIntexes();
-                int userSelec = Console.ReadLine();
+                string userSelec = Console.ReadLine();
 
 
             }
