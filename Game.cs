@@ -26,6 +26,7 @@ namespace Logic{
                 Console.WriteLine($"It is a {currentPlayer} turn, select the position");
                 board.printWithIntexes();
                 string userSelec = Console.ReadLine();
+                var temp = Convert.ToInt32(userSelec);
 
 
             }
@@ -40,6 +41,12 @@ namespace Logic{
                 player1="O";
             }
 
+        }
+        public Boolean checkInput(int cell){
+            if(cell>=0 && cell<=9){
+                return true;
+            }else
+                return false;
         }
         
     }
