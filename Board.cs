@@ -23,7 +23,7 @@ namespace GameBoard{
         }
         public void printWithIntexes(){
             int m =0;
-                        Console.WriteLine("________________");
+                        Console.WriteLine("_____________");
             for( int i = 0;i< 3;i++){
                 for ( int j = 0;j<3;j++){
                     Console.Write("|");
@@ -31,7 +31,7 @@ namespace GameBoard{
                     m++;             
                 }
                 Console.WriteLine("|");
-                Console.WriteLine("________________");
+                Console.WriteLine("_____________");
             }
         }
 
