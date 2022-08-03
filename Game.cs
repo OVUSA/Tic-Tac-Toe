@@ -8,7 +8,7 @@ namespace Logic{
         static string player1;
         static string player2;
         public string currentPlayer = player1;
-        static Board board;
+        public Board board;
 
        public Game(string userSymbol){
             player1 = userSymbol;
@@ -29,7 +29,7 @@ namespace Logic{
                 board.printWithIndexes();
                 string userSelec = Console.ReadLine();
                 var temp = Convert.ToInt32(userSelec);
-                if(checkInput(temp)){
+                if(checkInput(temp)!= null){
                     completeMove(temp);
                 }
 
@@ -48,28 +48,39 @@ namespace Logic{
             }
 
         }
-        public Boolean checkInput(int cell){
-            
+        public int[] checkInput(int cell){                     
             switch(cell){
                 case 0:
-                if(board.getBoard[0,0]=="")
+                    if(board.checkValue(0,0)==" "){return new int[]{0,0};};
+                    break;
                 case 1:
+                    if(board.checkValue(0,1)==" "){return true;};
+                    break;
                 case 2:
+                    if(board.checkValue(0,2)==" "){return true;};
+                    break;
                 case 3:
+                    if(board.checkValue(1,0)==" "){return true;}
+                    break;
                 case 4:
+                    if(board.checkValue(1,1)==" "){return true;}
+                    break;
                 case 5:
+                    if(board.checkValue(1,2)==" "){return true;}
+                    break;
                 case 6:
                 case 7:
                 case 8:
                 case 9:
                 default:
-                    return false;
+                    return null;
             }
    
-                return false;
+            
         }
 
         public void completeMove(int cell){
+            board.setBoard()
 
         }
         
