@@ -49,12 +49,28 @@ namespace Logic{
 
         }
         public Boolean checkInput(int cell){
+            
+            switch(cell){
+                case 0:
+                if(board.getBoard[0,0]=="")
+                case 1:
+                case 2:
+                case 3:
+                case 4:
+                case 5:
+                case 6:
+                case 7:
+                case 8:
+                case 9:
+                default:
+                    return false;
+            }
    
                 return false;
         }
 
         public void completeMove(int cell){
-            
+
         }
         
     }

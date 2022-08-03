@@ -1,6 +1,6 @@
 namespace GameBoard{
     public class Board {
-        public String[,] board;
+        private static String[,] board;
 
         public Board(){
             board = new String[,]{
@@ -34,6 +34,17 @@ namespace GameBoard{
                 Console.WriteLine("_____________");
             }
         }
+        public void setBoard(int int1, int int2, string value){  
+            board[int1, int2]=value;                 
+        }
+        public string[,] getBoard(){  
+            return board;               
+        }
+
+        public string checkValue(int index1, int index2){
+            return board[index1,index2];
+        }
+        
 
         
     
