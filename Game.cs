@@ -7,7 +7,7 @@ namespace Logic{
         //user's represented as player1
         static string player1;
         static string player2;
-        private string currentPlayer = player1;
+        public string currentPlayer = player1;
         static Board board;
 
        public Game(string userSymbol){
@@ -25,10 +25,13 @@ namespace Logic{
 
             while(emptyCells>0){
                 board.printBoard();  
-                Console.WriteLine($"It is a {currentPlayer} turn, select the position");
+                Console.WriteLine($"It is a '{currentPlayer}' turn, select the position");
                 board.printWithIndexes();
                 string userSelec = Console.ReadLine();
                 var temp = Convert.ToInt32(userSelec);
+                if(checkInput(temp)){
+                    completeMove(temp);
+                }
 
 
 
@@ -46,10 +49,12 @@ namespace Logic{
 
         }
         public Boolean checkInput(int cell){
-            if(cell>=0 && cell<=9){
-                return true;
-            }else
+   
                 return false;
+        }
+
+        public void completeMove(int cell){
+            
         }
         
     }
