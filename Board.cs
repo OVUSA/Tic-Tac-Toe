@@ -21,7 +21,7 @@ namespace GameBoard{
                 Console.WriteLine("________________");
             }
         }
-        public void printWithIntexes(){
+        public void printWithIndexes(){
             int m =0;
                         Console.WriteLine("_____________");
             for( int i = 0;i< 3;i++){
