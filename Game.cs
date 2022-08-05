@@ -54,29 +54,33 @@ namespace Logic{
                     if(board.checkValue(0,0)==" "){return new int[]{0,0};};
                     break;
                 case 1:
-                    if(board.checkValue(0,1)==" "){return true;};
+                    if(board.checkValue(0,1)==" "){return new int[]{0,1};};
                     break;
                 case 2:
-                    if(board.checkValue(0,2)==" "){return true;};
+                    if(board.checkValue(0,2)==" "){return new int[]{0,2};};
                     break;
                 case 3:
-                    if(board.checkValue(1,0)==" "){return true;}
+                    if(board.checkValue(1,0)==" "){return new int[]{1,0};}
                     break;
                 case 4:
-                    if(board.checkValue(1,1)==" "){return true;}
+                    if(board.checkValue(1,1)==" "){return new int[]{1,1};}
                     break;
                 case 5:
-                    if(board.checkValue(1,2)==" "){return true;}
+                    if(board.checkValue(1,2)==" "){return new int[]{1,2};}
                     break;
                 case 6:
+                    if(board.checkValue(2,0)==" "){return new int[]{2,0};}
+                    break;
                 case 7:
+                    if(board.checkValue(2,1)==" "){return new int[]{2,1};}
+                    break;
                 case 8:
-                case 9:
+                    if(board.checkValue(2,2)==" "){return new int[]{2,2};}
+                    break;
                 default:
-                    return null;
-            }
-   
-            
+                    return new int[]{};
+            }  
+            return null;
         }
 
         public void completeMove(int cell){
