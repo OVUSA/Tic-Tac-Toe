@@ -30,7 +30,7 @@ namespace Logic{
                 string userSelec = Console.ReadLine();
                 var temp = Convert.ToInt32(userSelec);
                 if(checkInput(temp)!= null){
-                    completeMove(temp);
+                    completeMove(checkInput(temp),temp);
                 }
 
 
@@ -83,8 +83,8 @@ namespace Logic{
             return null;
         }
 
-        public void completeMove(int cell){
-            board.setBoard()
+        public void completeMove(int [] ar, string currentPlayer){
+            board.setBoard(ar[0],ar[1],currentPlayer);
 
         }
         
