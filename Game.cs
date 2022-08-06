@@ -94,6 +94,13 @@ namespace Logic{
             
    
         }
+        public string isWinner(){
+            if(board.checkValue(0,0)==board.checkValue(1,1)&&board.checkValue(1,1)== board.checkValue(2,2)&& board.checkValue(1,1)!="  "){
+                return board.checkValue(0,0);
+            }else
+                return null;
+
+        }
 
         public void completeMove(int [] ar, string currentPlayer){
             board.setBoard(ar[0],ar[1],currentPlayer);
