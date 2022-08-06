@@ -7,12 +7,13 @@ namespace Logic{
         //user's represented as player1
         static string player1;
         static string player2;
-        public string currentPlayer = player1;
+        public string currentPlayer;
         public Board board;
 
        public Game(string userSymbol){
-            player1 = userSymbol;
+            
             board = new Board();
+            assignSymbol(userSymbol);
             gameManager();
       
         }
@@ -27,13 +28,16 @@ namespace Logic{
                 board.printBoard();  
                 Console.WriteLine($"It is a '{currentPlayer}' turn, select the position");
                 board.printWithIndexes();
+                Console.WriteLine("Enter the number of the cell:");
                 string userSelec = Console.ReadLine();
                 var temp = Convert.ToInt32(userSelec);
                 if(checkInput(temp)!= null){
-                    completeMove(checkInput(temp),temp);
+                    completeMove(checkInput(temp),currentPlayer);
+                    emptyCells--;
+                    switchPlayerTurn();
+                }else{
+                    Console.WriteLine("Wrone input, select a cell 0-9");
                 }
-
-
 
             }
         }
@@ -42,12 +46,15 @@ namespace Logic{
             if(userSymbol=="X"){
                 player2="O";
                 player1="X";
+                currentPlayer=player1;
             }else{
                 player2="X";
                 player1="O";
+                currentPlayer=player2;
             }
 
         }
+        
         public int[] checkInput(int cell){                     
             switch(cell){
                 case 0:

@@ -11,8 +11,8 @@ namespace Program{
             Console.WriteLine("Welcome to Tic-Tac-Toe game.You're gonna play with a computer.");
             Console.Write("Select the symbol to play X/O ?");
             Console.WriteLine();
-            string userSymbol = Console.ReadLine();
-            var game = new Game(userSymbol);
+           // string userSymbol = Console.ReadLine();
+            var game = new Game("X");
         }
     }
 }
