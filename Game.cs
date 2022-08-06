@@ -30,13 +30,13 @@ namespace Logic{
                 board.printWithIndexes();
                 Console.WriteLine("Enter the number of the cell:");
                 string userSelec = Console.ReadLine();
-                var temp = Convert.ToInt32(userSelec);
-                if(checkInput(temp)!= null){
+                var temp = Int32.Parse(userSelec);
+                if(checkInput(temp)[0]!= 5){
                     completeMove(checkInput(temp),currentPlayer);
                     emptyCells--;
                     switchPlayerTurn();
                 }else{
-                    Console.WriteLine("Wrone input, select a cell 0-9");
+                    Console.WriteLine("Wrong input, select a cell 0-9");
                 }
 
             }
@@ -55,39 +55,44 @@ namespace Logic{
 
         }
         
-        public int[] checkInput(int cell){                     
+        public int[] checkInput(int cell){  
+            int[] ret = new int[2];                   
             switch(cell){
+        
                 case 0:
-                    if(board.checkValue(0,0)==" "){return new int[]{0,0};};
+                    if(board.checkValue(0,0)=="  "){ret[0] =0;ret[1]=0;};
                     break;
                 case 1:
-                    if(board.checkValue(0,1)==" "){return new int[]{0,1};};
+                    if(board.checkValue(0,1)=="  "){ret[0] =0;ret[1]=1;};
                     break;
                 case 2:
-                    if(board.checkValue(0,2)==" "){return new int[]{0,2};};
+                    if(board.checkValue(0,2)=="  "){ret[0] =0;ret[1]=2;};
                     break;
                 case 3:
-                    if(board.checkValue(1,0)==" "){return new int[]{1,0};}
+                    if(board.checkValue(1,0)=="  "){ret[0] = 1;ret[1]= 0;}
                     break;
                 case 4:
-                    if(board.checkValue(1,1)==" "){return new int[]{1,1};}
+                    if(board.checkValue(1,1)=="  "){ ret[0] = 1;ret[1]= 1;}
                     break;
                 case 5:
-                    if(board.checkValue(1,2)==" "){return new int[]{1,2};}
+                    if(board.checkValue(1,2)=="  "){ ret[0] = 1;ret[1]= 2;}
                     break;
                 case 6:
-                    if(board.checkValue(2,0)==" "){return new int[]{2,0};}
+                    if(board.checkValue(2,0)=="  "){ret[0] = 2;ret[1]= 0;}
                     break;
                 case 7:
-                    if(board.checkValue(2,1)==" "){return new int[]{2,1};}
+                    if(board.checkValue(2,1)=="  "){ret[0] = 2;ret[1]= 1;}
                     break;
                 case 8:
-                    if(board.checkValue(2,2)==" "){return new int[]{2,2};}
+                    if(board.checkValue(2,2)=="  "){ret[0] = 2;ret[1]= 2;}
                     break;
                 default:
-                    return new int[]{};
-            }  
-            return null;
+                    ret[0] = 5;ret[1]= 5;
+                    break;
+            }
+            return ret;
+            
+   
         }
 
         public void completeMove(int [] ar, string currentPlayer){
