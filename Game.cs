@@ -24,7 +24,7 @@ namespace Logic{
 
         public void gameManager(){
 
-            while(emptyCells>0){
+            while(emptyCells>0 && isWinner()==null){
                 board.printBoard();  
                 Console.WriteLine($"It is a '{currentPlayer}' turn, select the position");
                 board.printWithIndexes();
@@ -96,9 +96,25 @@ namespace Logic{
         }
         public string isWinner(){
             if(board.checkValue(0,0)==board.checkValue(1,1)&&board.checkValue(1,1)== board.checkValue(2,2)&& board.checkValue(1,1)!="  "){
-                return board.checkValue(0,0);
-            }else
+                return board.checkValue(0,0);}
+
+            else if (board.checkValue(0,0)==board.checkValue(0,1)&&board.checkValue(0,1)== board.checkValue(0,2)&& board.checkValue(0,0)!="  "){
+                return board.checkValue(0,0);}
+
+            else if (board.checkValue(0,0)==board.checkValue(1,0)&&board.checkValue(1,0)== board.checkValue(2,0)&& board.checkValue(0,0)!="  "){
+                return board.checkValue(0,0);}
+
+            else if (board.checkValue(0,1)==board.checkValue(1,1)&&board.checkValue(1,1)== board.checkValue(2,1)&& board.checkValue(1,1)!="  "){
+                return board.checkValue(1,1);}
+            
+            else if (board.checkValue(0,2)==board.checkValue(1,2)&&board.checkValue(1,2)== board.checkValue(2,2)&& board.checkValue(1,2)!="  "){
+                return board.checkValue(1,2);}
+            
+
+
+            else
                 return null;
+            }
 
         }
 
