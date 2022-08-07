@@ -34,12 +34,13 @@ namespace Logic{
                 if(checkInput(temp)[0]!= 5){
                     completeMove(checkInput(temp),currentPlayer);
                     emptyCells--;
-                    switchPlayerTurn();
+                    
                 }else{
                     Console.WriteLine("Wrong input, select a cell 0-9");
                 }
-
+             switchPlayerTurn();
             }
+ 
             board.printBoard();
             Console.Write($"The winner is '{currentPlayer}' .Game is over!!");
         }
@@ -97,36 +98,33 @@ namespace Logic{
         }
         public string isWinner(){
             if(board.checkValue(0,0)==board.checkValue(1,1)&&board.checkValue(1,1)== board.checkValue(2,2)&& board.checkValue(1,1)!="  "){
-                return board.checkValue(0,0);}
+                return board.checkValue(1,1);}
 
             else if (board.checkValue(0,0)==board.checkValue(0,1)&&board.checkValue(0,1)== board.checkValue(0,2)&& board.checkValue(0,0)!="  "){
-                return board.checkValue(0,0);}
+                return board.checkValue(0,1);}
 
             else if (board.checkValue(0,0)==board.checkValue(1,0)&&board.checkValue(1,0)== board.checkValue(2,0)&& board.checkValue(0,0)!="  "){
-                return board.checkValue(0,0);}
+                return board.checkValue(1,0);}
 
             else if (board.checkValue(0,1)==board.checkValue(1,1)&&board.checkValue(1,1)== board.checkValue(2,1)&& board.checkValue(1,1)!="  "){
-                return board.checkValue(0,1);}
+                return board.checkValue(1,1);}
             
             else if (board.checkValue(0,2)==board.checkValue(1,2)&&board.checkValue(1,2)== board.checkValue(2,2)&& board.checkValue(1,2)!="  "){
-                return board.checkValue(0,2);}
-        
+                return board.checkValue(1,2);}       
                     
             else if (board.checkValue(1,0)==board.checkValue(1,1)&&board.checkValue(1,1)== board.checkValue(1,2)&& board.checkValue(1,2)!="  "){
                 return board.checkValue(1,1);}
 
-            else if (board.checkValue(2,0)==board.checkValue(2,1)&&board.checkValue(2,1)== board.checkValue(2,2)&& board.checkValue(1,2)!="  "){
-                return board.checkValue(2,2);}
+            else if (board.checkValue(2,0)==board.checkValue(1,1)&&board.checkValue(1,1)== board.checkValue(0,2)&& board.checkValue(0,2)!="  "){
+                return board.checkValue(1,1);}
             
             else if (board.checkValue(0,2)==board.checkValue(1,2)&&board.checkValue(1,2)== board.checkValue(2,2)&& board.checkValue(1,2)!="  "){
                 return board.checkValue(1,2);}
             
-            else if (board.checkValue(2,0)==board.checkValue(2,1)&&board.checkValue(2,1)== board.checkValue(2,2)&& board.checkValue(2,2)!="  "){
-                return board.checkValue(2,2);}
+            else if ( board.checkValue(2,2)!="  "&& board.checkValue(2,0)==board.checkValue(2,1)&&board.checkValue(2,1)== board.checkValue(2,2)){
+                return board.checkValue(2,1);}
             else
                 return null;
-
-
         }
 
         public void completeMove(int [] ar, string currentPlayer){
@@ -136,4 +134,12 @@ namespace Logic{
         
     }
 }
+/*_____________
+| 00 | 01 | 02 |
+_____________
+| 10 | 11 | 12 |
+_____________
+| 20 | 21 | 22 | ++
+
+*/
 
