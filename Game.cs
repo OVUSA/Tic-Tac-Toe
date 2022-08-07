@@ -40,6 +40,7 @@ namespace Logic{
                 }
 
             }
+            board.printBoard();
             Console.Write($"The winner is '{currentPlayer}' .Game is over!!");
         }
 
@@ -105,20 +106,20 @@ namespace Logic{
                 return board.checkValue(0,0);}
 
             else if (board.checkValue(0,1)==board.checkValue(1,1)&&board.checkValue(1,1)== board.checkValue(2,1)&& board.checkValue(1,1)!="  "){
-                return board.checkValue(1,1);}
+                return board.checkValue(0,1);}
             
             else if (board.checkValue(0,2)==board.checkValue(1,2)&&board.checkValue(1,2)== board.checkValue(2,2)&& board.checkValue(1,2)!="  "){
-                return board.checkValue(1,2);}
+                return board.checkValue(0,2);}
         
                     
             else if (board.checkValue(1,0)==board.checkValue(1,1)&&board.checkValue(1,1)== board.checkValue(1,2)&& board.checkValue(1,2)!="  "){
-                return board.checkValue(1,2);}
+                return board.checkValue(1,1);}
 
             else if (board.checkValue(2,0)==board.checkValue(2,1)&&board.checkValue(2,1)== board.checkValue(2,2)&& board.checkValue(1,2)!="  "){
                 return board.checkValue(2,2);}
             
             else if (board.checkValue(0,2)==board.checkValue(1,2)&&board.checkValue(1,2)== board.checkValue(2,2)&& board.checkValue(1,2)!="  "){
-                return board.checkValue(1,1);}
+                return board.checkValue(1,2);}
             
             else if (board.checkValue(2,0)==board.checkValue(2,1)&&board.checkValue(2,1)== board.checkValue(2,2)&& board.checkValue(2,2)!="  "){
                 return board.checkValue(2,2);}
