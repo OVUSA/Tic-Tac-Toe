@@ -36,7 +36,7 @@ namespace GameBoard{
         }
         public void setBoard(int int1, int int2, string value){  
             board[int1, int2]=value;   
-            Console.WriteLine("Move is complete.");              
+            
         }
         public string[,] getBoard(){  
             return board;               

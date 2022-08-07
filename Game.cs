@@ -40,18 +40,18 @@ namespace Logic{
                 }
 
             }
+            Console.Write($"The winner is '{currentPlayer}' .Game is over!!");
         }
 
         public void assignSymbol(string userSymbol){
             if(userSymbol=="X"){
                 player2="O";
                 player1="X";
-                currentPlayer=player1;
             }else{
                 player2="X";
                 player1="O";
-                currentPlayer=player2;
             }
+            currentPlayer=player1;
 
         }
         
@@ -124,7 +124,7 @@ namespace Logic{
                 return board.checkValue(2,2);}
             else
                 return null;
-            
+
 
         }
 
