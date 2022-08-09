@@ -25,20 +25,29 @@ namespace Logic{
         public void gameManager(){
 
             while(emptyCells>0 && isWinner()==null){
-                board.printBoard();  
-                Console.WriteLine($"It is a '{currentPlayer}' turn, select the position");
-                board.printWithIndexes();
-                Console.WriteLine("Enter the number of the cell:");
-                string userSelec = Console.ReadLine();
-                var temp = Int32.Parse(userSelec);
-                if(checkInput(temp)[0]!= 5){
-                    completeMove(checkInput(temp),currentPlayer);
-                    emptyCells--;
-                    
+                board.printBoard();
+
+                board.printWithIndexes();  
+                if(currentPlayer!=player1){
+                    Console.WriteLine("Computer turns......");
+                    randomMove();
+
                 }else{
-                    Console.WriteLine("Wrong input, select a cell 0-9");
+                    Console.WriteLine($"It is a '{currentPlayer}' turn, select the position");
+                    Console.WriteLine("Enter the number of the cell:");
+                    string userSelec = Console.ReadLine();
+                    var temp = Int32.Parse(userSelec);
+                    if(checkInput(temp)[0]!= 5){
+                        completeMove(checkInput(temp),currentPlayer);
+                        emptyCells--;
+                        
+                    }else{
+                        Console.WriteLine("Wrong input, select a cell 0-9");
+                    }
+
                 }
-             switchPlayerTurn();
+
+             if(isWinner()==null){switchPlayerTurn();};
             }
  
             board.printBoard();
@@ -102,11 +111,11 @@ namespace Logic{
   
         Random rnd = new Random();
         int num = rnd.Next(0,8); 
-        if(checkInput(num)!=null){
-            completeMove(checkInput(num), currentPlayer);
-        }
-            
-          
+            if(checkInput(num)!=null){
+                completeMove(checkInput(num), currentPlayer);
+            }
+        Console.WriteLine($"Computer completed the move.. its selected: {num}");
+                   
         }
         public string isWinner(){
             if(board.checkValue(0,0)==board.checkValue(1,1)&&board.checkValue(1,1)== board.checkValue(2,2)&& board.checkValue(1,1)!="  "){
