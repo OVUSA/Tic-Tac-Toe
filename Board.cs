@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 namespace GameBoard{
     public class Board {
         private String[,] board;
@@ -21,6 +22,7 @@ namespace GameBoard{
                 Console.WriteLine("________________");
             }
         }
+
         public void printWithIndexes(){
             int m =0;
                         Console.WriteLine("_____________");

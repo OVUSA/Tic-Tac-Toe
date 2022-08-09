@@ -45,6 +45,7 @@ namespace Logic{
             Console.Write($"The winner is '{currentPlayer}' .Game is over!!");
         }
 
+
         public void assignSymbol(string userSymbol){
             if(userSymbol=="X"){
                 player2="O";
@@ -95,6 +96,17 @@ namespace Logic{
             return ret;
             
    
+        }
+
+        public void randomMove(){
+  
+        Random rnd = new Random();
+        int num = rnd.Next(0,8); 
+        if(checkInput(num)!=null){
+            completeMove(checkInput(num), currentPlayer);
+        }
+            
+          
         }
         public string isWinner(){
             if(board.checkValue(0,0)==board.checkValue(1,1)&&board.checkValue(1,1)== board.checkValue(2,2)&& board.checkValue(1,1)!="  "){
