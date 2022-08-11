@@ -10,14 +10,11 @@ namespace Logic{
         public string currentPlayer;
         public Board board;
 
-       public Game(string userSymbol){
-            
+       public Game(string userSymbol, string difficultyLevel){          
             board = new Board();
             assignSymbol(userSymbol);
-            gameManager();
-      
+            gameManager();      
         }
-
         public string switchPlayerTurn(){
             return currentPlayer==player1?currentPlayer=player2:currentPlayer=player1;
         }
@@ -47,7 +44,7 @@ namespace Logic{
 
                 }
 
-             if(isWinner()==null){switchPlayerTurn();};
+             if(isWinner()==null){switchPlayerTurn();}continue;
             }
  
             board.printBoard();
