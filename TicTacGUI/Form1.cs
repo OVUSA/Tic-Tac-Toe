@@ -36,23 +36,43 @@ namespace TicTacGUI
             for ( int i = 0; i < 9; i++)
             {
                 buttons[i].Click += handleButtonClick;
+                buttons[i].Tag = i;
             }
         }
 
+        // takes only user input
         private void handleButtonClick(object sender, EventArgs e)
         {
             Button clikedButton = (Button)sender;
-            if(game.currentPlayer == 1) { clikedButton.Text = "X"; }
+            int userPlayer = (int)clikedButton.Tag;
+            game.Grid[userPlayer] = 1;
         }
 
         public void updateBoard()
         {
-
+            for ( int i = 0;i< 9; i++)
+            {
+                if (game.Grid[i] == 0)
+                {
+                    buttons[i].Text = "";
+                }else if (game.Grid[i] == 1)
+                {
+                    buttons[i].Text = "X";
+                }else if (game.Grid[i] == 2)
+                {
+                    buttons[i].Text = "O";
+                }
+            }
         }
+        
 
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            updateBoard();
+        }
         private void button10_Click(object sender, EventArgs e)
         {
-
+            //updateBoard();
         }
     }
 }
