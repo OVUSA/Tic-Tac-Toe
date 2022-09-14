@@ -7,6 +7,7 @@ namespace Program
     {
         static Board game = new Board();
         static  Boolean winner = true;
+        public static int currentPlayer = 1;
 
         public static void Main(string[] args)
         {

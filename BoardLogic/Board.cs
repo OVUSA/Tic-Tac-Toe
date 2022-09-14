@@ -9,6 +9,7 @@ namespace BoardLogic
     public class Board
     {
         public int[] Grid = new int[9];
+        public int currentPlayer;
 
         public Board()
         {
