@@ -1,28 +1,19 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using BoardLogic;
 
 namespace TicTacGUI
-
 {
-    
     public partial class Form1 : Form
     { 
         public Board game = new Board();
         Button[] buttons  = new Button[9];
     
         public Form1()
-
         {
             InitializeComponent();
             game = new Board();
+            // assigne buttons to an array
             buttons[0] = button1;
             buttons[1] = button2;
             buttons[2] = button3;
@@ -33,6 +24,7 @@ namespace TicTacGUI
             buttons[7] = button8;
             buttons[8] = button9;
            
+            //add functionallity to each button
             for ( int i = 0; i < 9; i++)
             {
                 buttons[i].Click += handleButtonClick;
@@ -44,10 +36,25 @@ namespace TicTacGUI
         private void handleButtonClick(object sender, EventArgs e)
         {
             Button clikedButton = (Button)sender;
+
+           // MessageBox.Show("button " + clikedButton.Tag + "was cliked");
+
+            // assigned a value to selected by user button
             int userPlayer = (int)clikedButton.Tag;
             game.Grid[userPlayer] = 1;
+            updateBoard();
+            computerTurn();
         }
 
+        private void computerTurn()
+        {
+            int computerChoice = -1;
+
+            while(computerChoice!=-1 || game.validateMove(computerChoice)==true)
+            //create a while loop with rendom choice
+        }
+
+        // connect grid values and buttons text
         public void updateBoard()
         {
             for ( int i = 0;i< 9; i++)

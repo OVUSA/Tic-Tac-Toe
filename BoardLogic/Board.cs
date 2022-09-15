@@ -10,6 +10,7 @@ namespace BoardLogic
     {
         public int[] Grid = new int[9];
         public int currentPlayer;
+        public int emptyCells = 9;
 
         public Board()
         {
@@ -33,21 +34,27 @@ namespace BoardLogic
             }
 
         }
-        public bool isBoardFull()
-        {
-            bool isFull = true;
 
-            for (int i = 0; i < 9; i++)
-            {
-                if (Grid[i] == 0)
-                {
-                    return false;
-                }
-             }
-            return true;
+
+        public void completeMove(int coordinate,int currentPlayer)          
+        {
+            Grid[coordinate] = currentPlayer;
         }
 
+        public void computerMove()
+        {
+            Random randomMove = new Random();
 
+        }
+
+        public bool validateMove(int userInput)
+        {
+            if (Grid[userInput] == 0)
+            {
+                return true;
+            }
+            return false;
+        }
     }
 
 
